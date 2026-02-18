@@ -1,0 +1,11 @@
+.agents
+.claude
+.cursor
+
+node_modules
+.next
+out
+build
+coverage
+bun.lock
+*.tsbuildinfo
