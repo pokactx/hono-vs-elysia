@@ -6,7 +6,7 @@ import type { TodoApi } from "@/lib/todo-store";
 import type { AppType } from "./app";
 
 function getBaseUrl() {
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "production") {
   return `hono-vs-elysia.vercel.app`;
 }
 return `localhost:${process.env.PORT ?? 3000}`;
