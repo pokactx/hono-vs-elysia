@@ -6,14 +6,10 @@ import type { TodoApi } from "@/lib/todo-store";
 import type { AppType } from "./app";
 
 function getBaseUrl() {
-  if (process.env.VERCEL_URL)
-    // reference for vercel.com
-    return `${process.env.VERCEL_URL}`;
-  if (process.env.RENDER_INTERNAL_HOSTNAME)
-    // reference for render.com
-    return `${process.env.RENDER_INTERNAL_HOSTNAME}:${process.env.PORT}`;
-  // assume localhost
-  return `localhost:${process.env.PORT ?? 3000}`;
+if (process.env.NODE_ENV !== "production") {
+  return `hono-vs-elysia.vercel.app`;
+}
+return `localhost:${process.env.PORT ?? 3000}`;
 }
 
 export const { api } = treaty<AppType>(getBaseUrl());
