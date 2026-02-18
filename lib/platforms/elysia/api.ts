@@ -3,10 +3,11 @@ import { treaty } from "@elysiajs/eden";
 import type { CreateTodoDto, UpdateTodoDto } from "@/lib/schemas";
 import type { TodoApi } from "@/lib/todo-store";
 
-import { app } from "./app";
 import type { AppType } from "./app";
 
-export const { api } = treaty<AppType>("localhost:3000");
+const url = process.env.NEXT_PUBLIC_VERCEL_URL || 'localhost:3000'
+
+export const { api } = treaty<AppType>(url);
 
 export const elysiaApi: TodoApi = {
   create: async (body: CreateTodoDto) => {

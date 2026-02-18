@@ -236,7 +236,7 @@ export const route = app
           title: "Hono API",
           version: "1.0.0",
         },
-        servers: [{ description: "Local Server", url: "http://localhost:3000" }],
+        servers: [{ description: "Local Server", url: "/" }],
       },
     }),
   );
